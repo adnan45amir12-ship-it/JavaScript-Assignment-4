@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+
+    <h1>Login</h1>
+
+    <form id="loginForm">
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+
+        <br><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p id="errorMessage"></p>
+
+    <script>
+        // Users email list
+        let users = [
+            "muhazzib@gmail.com",
+            "ali@gmail.com"
+        ];
+
+        // Login form
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            // Get email and password
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            // Check if email exists
+            if (users.includes(email)) {
+
+                // Navigate to dashboard
+                window.location.href = "dashboard.html";
+
+            } else {
+
+                // Show error
+                document.getElementById("errorMessage").innerText =
+                    "User not found! Enter correct email";
+            }
+        });
+    </script>
+
+</body>
+</html>
